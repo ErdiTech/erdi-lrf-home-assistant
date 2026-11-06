@@ -1,0 +1,28 @@
+# Family A (polled) module: LRF3000A1 at 115200 baud.
+esphome:
+  name: erdi-lrf-a-demo
+
+esp32:
+  board: esp32dev
+  framework:
+    type: arduino
+
+logger:
+
+external_components:
+  - source:
+      type: local
+      path: components
+
+uart:
+  id: lrf_uart
+  tx_pin: GPIO17
+  rx_pin: GPIO16
+  baud_rate: 115200
+
+sensor:
+  - platform: erdi_lrf
+    uart_id: lrf_uart
+    model: LRF3000A1
+    name: "Laser distance (long range)"
+    update_interval: 2s

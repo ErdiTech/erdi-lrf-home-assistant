@@ -1,0 +1,32 @@
+# Minimal ESPHome node: ERDI LRF22VB (family B, 460800 baud) on an ESP32 dev board.
+esphome:
+  name: erdi-lrf-demo
+
+esp32:
+  board: esp32dev
+  framework:
+    type: arduino
+
+logger:
+
+external_components:
+  - source:
+      type: local
+      path: components
+
+uart:
+  id: lrf_uart
+  tx_pin: GPIO17
+  rx_pin: GPIO16
+  baud_rate: 460800        # LRF22VB / LRF50VB / H series; family A models use 115200
+
+sensor:
+  - platform: erdi_lrf
+    uart_id: lrf_uart
+    model: LRF22VB
+    name: "Laser distance"
+    update_interval: 1s
+    filters:
+      - median:
+          window_size: 5
+          send_every: 1
