@@ -8,7 +8,7 @@ from esphome.const import (
 )
 
 DEPENDENCIES = ["uart"]
-CODEOWNERS = ["@Tommyapi"]
+CODEOWNERS = ["@ErdiTech"]
 
 erdi_lrf_ns = cg.esphome_ns.namespace("erdi_lrf")
 ErdiLRFSensor = erdi_lrf_ns.class_(

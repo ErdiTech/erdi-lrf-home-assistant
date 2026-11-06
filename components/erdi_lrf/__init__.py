@@ -1,2 +1,2 @@
 """ESPHome external component: ERDI laser rangefinder over UART."""
-CODEOWNERS = ["@Tommyapi"]
+CODEOWNERS = ["@ErdiTech"]

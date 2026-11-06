@@ -6,7 +6,7 @@ An **ESPHome external component** that reads an **ERDI 905 nm laser rangefinder 
 
 ```yaml
 external_components:
-  - source: github://Tommyapi/erdi-lrf-home-assistant
+  - source: github://ErdiTech/erdi-lrf-home-assistant
     components: [erdi_lrf]
 
 uart:
@@ -65,9 +65,9 @@ Protocol source: [ErdiTech/erdi-lrf-drivers](https://github.com/ErdiTech/erdi-lr
 
 ## Related projects
 
-- [erdi-lrf-esp32-micropython](https://github.com/Tommyapi/erdi-lrf-esp32-micropython): the same parser for MicroPython
-- [erdi-lrf-stm32-hal](https://github.com/Tommyapi/erdi-lrf-stm32-hal): STM32 HAL driver
-- [laser-rangefinder-module-database](https://github.com/Tommyapi/laser-rangefinder-module-database): dataset of laser rangefinder modules
+- [erdi-lrf-esp32-micropython](https://github.com/ErdiTech/erdi-lrf-esp32-micropython): the same parser for MicroPython
+- [erdi-lrf-stm32-hal](https://github.com/ErdiTech/erdi-lrf-stm32-hal): STM32 HAL driver
+- [laser-rangefinder-module-database](https://github.com/ErdiTech/laser-rangefinder-module-database): dataset of laser rangefinder modules
 
 ## Support / 打赏
 
