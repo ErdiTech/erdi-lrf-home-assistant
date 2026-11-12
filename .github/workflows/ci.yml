@@ -6,11 +6,24 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: gcc -std=c99 -Wall -Wextra -o t test/test_core.c -lm && ./t
-  esphome-config:
+  esphome-compile:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - config: example.yaml
+            target: esp32
+          - config: example-single-shot.yaml
+            target: esp32
+          - config: example-esp8266.yaml
+            target: esp8266
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with: { python-version: "3.12" }
       - run: pip install esphome
-      - run: esphome config example.yaml && esphome config example-single-shot.yaml
+      - name: esphome config
+        run: esphome config ${{ matrix.config }}
+      - name: esphome compile (${{ matrix.target }})
+        run: esphome compile ${{ matrix.config }}

@@ -1,0 +1,28 @@
+# ESP8266 (D1 mini): ERDI LRF22VB (460800 baud) on the hardware UART.
+# UART0 is used for the sensor, so the serial logger is switched off (baud_rate: 0).
+esphome:
+  name: erdi-lrf-esp8266-demo
+
+esp8266:
+  board: d1_mini
+
+logger:
+  baud_rate: 0
+
+external_components:
+  - source:
+      type: local
+      path: components
+
+uart:
+  id: lrf_uart
+  tx_pin: GPIO1
+  rx_pin: GPIO3
+  baud_rate: 460800
+
+sensor:
+  - platform: erdi_lrf
+    uart_id: lrf_uart
+    model: LRF22VB
+    name: "Laser distance"
+    update_interval: 1s
