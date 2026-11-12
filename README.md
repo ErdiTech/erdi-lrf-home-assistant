@@ -1,5 +1,7 @@
 # ERDI laser rangefinder for ESPHome and Home Assistant
 
+Datasheets and public prices are on the [LRF22VB page](https://erdilrf.com/models/lrf22vb/?utm_source=github&utm_medium=readme&utm_campaign=erdi-lrf-home-assistant) and in the [full ERDI laser rangefinder model list](https://erdilrf.com/models/?utm_source=github&utm_medium=readme&utm_campaign=erdi-lrf-home-assistant).
+
 An **ESPHome external component** that reads an **ERDI 905 nm laser rangefinder module** over UART and exposes the distance as a **Home Assistant distance sensor**. Use it for a **laser distance sensor in Home Assistant**: water or fuel tank level, garage parking assist, door and gate position, snow depth, object presence at metre-scale range. Works on **ESP32 / ESP8266** boards with a free UART. Covers the **LRF22VB, LRF50VB, LRF50H-LRF1500H** `5C` stream modules (460800 baud) and the **LR1000E2 ... LR2000E4, LRF1200A1, LRF3000A1, SPD1200N\*** polled modules (115200 baud).
 
 ## Quick start
