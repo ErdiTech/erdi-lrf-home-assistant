@@ -2,7 +2,7 @@
 
 Datasheets and public prices are on the [LRF22VB page](https://erdilrf.com/models/lrf22vb/?utm_source=github&utm_medium=readme&utm_campaign=erdi-lrf-home-assistant) and in the [full ERDI laser rangefinder model list](https://erdilrf.com/models/?utm_source=github&utm_medium=readme&utm_campaign=erdi-lrf-home-assistant).
 
-An **ESPHome external component** that reads an **ERDI 905 nm laser rangefinder module** over UART and exposes the distance as a **Home Assistant distance sensor**. Use it for a **laser distance sensor in Home Assistant**: water or fuel tank level, garage parking assist, door and gate position, snow depth, object presence at metre-scale range. Works on **ESP32 / ESP8266** boards with a free UART. Covers the **LRF22VB, LRF50VB, LRF50H-LRF1500H** `5C` stream modules (460800 baud) and the **LR1000E2 ... LR2000E4, LRF1200A1, LRF3000A1, SPD1200N\*** polled modules (115200 baud).
+An **ESPHome external component** that reads an **ERDI 905 nm laser rangefinder module** over UART and exposes the distance as a **Home Assistant distance sensor**. Use it for a **laser distance sensor in Home Assistant**: water or fuel tank level, garage parking assist, door and gate position, snow depth, object presence at metre-scale range. Works on **ESP32 / ESP8266** boards with a free UART. Covers the **LRF10VB, LRF22VB, LRF50VB, LRF50H-LRF1500H** `5C` stream modules (460800 baud) and the **LR1000E2 ... LR2000E4, LRF1200A1, LRF3000A1, SPD1200N\*, SPD1200S2G** polled modules (115200 baud).
 
 ## Quick start
 
@@ -31,7 +31,7 @@ Add the node in the ESPHome dashboard; Home Assistant discovers it and shows `La
 
 | Option | Values | Notes |
 |---|---|---|
-| `model` | `LRF22VB`, `LRF50VB`, `LRF50H`, `LRF100H`, `LRF200H`, `LRF300H`, `LRF600H`, `LRF1500H`, `LR1000E2`, `LR1000E4`, `LR1200E2`, `LR1200E4`, `LR1500E2`, `LR1500E4`, `LR2000E2`, `LR2000E4`, `LRF1200A1`, `LRF3000A1`, `SPD1200N0`, `SPD1200N2`, `SPD1200N4` | Selects frame format, unit and out-of-range marker. The unit differs by series (H: cm, VB: mm, family A: metres x 10), so the model is required. |
+| `model` | `LRF22VB`, `LRF50VB`, `LRF50H`, `LRF100H`, `LRF200H`, `LRF300H`, `LRF600H`, `LRF1500H`, `LR1000E2`, `LR1000E4`, `LR1200E2`, `LR1200E4`, `LR1500E2`, `LR1500E4`, `LR2000E2`, `LR2000E4`, `LRF1200A1`, `LRF3000A1`, `SPD1200N0`, `SPD1200N2`, `SPD1200N4`, `SPD1200S2G`, `LRF10VB` | Selects frame format, unit and out-of-range marker. The unit differs by series (H: cm, VB: mm, family A: metres x 10), so the model is required. |
 | `update_interval` | time | How often the state is published. Family A modules are polled once per interval. Default `1s`. |
 | `uart_id` | id | UART whose baud rate matches the model; a warning is logged if it does not. |
 

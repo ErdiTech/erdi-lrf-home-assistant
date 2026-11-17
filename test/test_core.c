@@ -24,6 +24,15 @@ int main(void) {
   assert(feed_all(&p, f, 4, &m) == 1);
   assert(fabsf(m.metres - 4.354f) < 1e-4f);
 
+  /* LRF10VB manual vector: 5C 02 11 EC = 4354 mm; 65535 means out of range */
+  erdi_parser_init(&p, erdi_find_model("LRF10VB"));
+  assert(feed_all(&p, f, 4, &m) == 1);
+  assert(fabsf(m.metres - 4.354f) < 1e-4f);
+  const uint8_t oor10[] = {0x5C, 0xFF, 0xFF, 0x01};
+  assert(erdi_checksum_b(oor10 + 1, 2) == 0x01);
+  assert(feed_all(&p, oor10, 4, &m) == 1 && m.out_of_range);
+  assert(erdi_find_model("SPD1200S2G") != NULL);
+
   /* out-of-range marker 20000 mm on LRF22VB */
   const uint8_t oor[] = {0x5C, 0x20, 0x4E, 0x91};
   assert(erdi_checksum_b(oor + 1, 2) == 0x91);
